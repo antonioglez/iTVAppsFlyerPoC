@@ -1,0 +1,2 @@
+rootProject.name = "iTV AppsFlyer PoC"
+include ':app'
