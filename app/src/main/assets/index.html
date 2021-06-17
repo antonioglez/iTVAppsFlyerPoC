@@ -1,0 +1,75 @@
+<html>
+<head>
+    <!--<script src="https://weinre-dev.ocs.ps.accedo.tv/target/target-script-min.js#itv"></script>-->
+</head>
+<body>
+
+<h1>iTV-PoC</h1>
+<div>
+    <h2>Default Javascript Bridge to Android</h2>
+    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+</div>
+<div>
+    <h2>Links to Google Play</h2>
+    <input type="button" value="Go to Google Play iTV" onClick="gotoGooglePlay('itv')" />
+    <input type="button" value="Go to Google Play Britbox" onClick="gotoGooglePlay('britbox')" />
+    <input type="button" value="Go to Google Play Youtube" onClick="gotoGooglePlay('youtube')" />
+</div>
+<div>
+    <h2>Deeplinks to Apps</h2>
+    <input type="button" value="Deeplink to iTV-PoC" onClick="deeplinkToApp('itv')" />
+    <input type="button" value="Deeplink to Britbox" onClick="deeplinkToApp('britbox')" />
+</div>
+<div>
+    <h2>Deeplinks to AppsFlyer (Referral tool)</h2>
+    <input type="button" value="Deeplink to iTV-PoC" onClick="deeplinkToAppsFlyer('itv')" />
+    <input type="button" value="Deeplink to Britbox" onClick="deeplinkToAppsFlyer('britbox')" />
+</div>
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        if (Android) {
+            Android.showToast(toast);
+        } else {
+            console.log(toast);
+        }
+    }
+
+    function gotoGooglePlay(app) {
+        switch(app) {
+            case "itv": window.location.href = "https://play.google.com/store/apps/details?id=air.ITVMobilePlayer";
+                break;
+            case "britbox": window.location.href = "https://play.google.com/store/apps/details?id=com.britbox.us";
+                break;
+            case "youtube": window.location.href = "https://play.google.com/store/apps/details?id=com.google.android.youtube";
+                break;
+            default: window.location.href = "https://play.google.com";
+        }
+    }
+
+    function deeplinkToApp(app) {
+        switch(app) {
+            case "itv": window.location.href = "https://app.tv.accedo.itv";
+                break;
+            case "britbox": window.location.href = "https://app.tv.accedo.britbox";
+                break;
+            case "youtube": window.location.href = "app://com.google.android.youtube";
+                break;
+            default: window.location.href = "app://com.android.vending";
+        }
+    }
+
+    function deeplinkToAppsFlyer(app) {
+        switch(app) {
+            case "itv": window.location.href = "";
+                break;
+            case "britbox": window.location.href = "";
+                break;
+            default: window.location.href = "app://com.android.vending";
+        }
+    }
+
+</script>
+
+</body>
+</html>
