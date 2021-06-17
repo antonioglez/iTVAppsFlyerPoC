@@ -19,8 +19,8 @@ import java.util.Map;
 public class AFApplication extends Application {
 
 
-    private static final String AF_DEV_KEY = "AF_DEV_KEY";
-    //private static final String AF_DEV_KEY = "qrdZGj123456789";
+    //private static final String AF_DEV_KEY = "AF_DEV_KEY";
+    private static final String AF_DEV_KEY = "KF2xwLTAZW45J9fYM4BbaF";
 
 
     @Override
