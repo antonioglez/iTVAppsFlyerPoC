@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             Uri link = Uri.parse(url);
             Context mContext = getApplicationContext();
 
+            String host = "";
+            String asin = "";
+
             // Google Play Logic
             if ("play.google.com".equals(link.getHost())) {
                 if (!url.startsWith("http://") && !url.startsWith("https://")) {
@@ -75,7 +78,26 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(LOG_TAG, "error: " + e.getMessage());
                 }
             }
-            else if (url.contains("app.tv.accedo")) {
+            // Amazon Store Logic
+            else if(url.contains("asin=")) {
+                String[] appUrl = url.split("asin=");
+                host = appUrl[0];
+                asin = appUrl.length > 1 ? appUrl[1] : "";
+
+                if (asin.length() > 0) {
+                    Log.d(LOG_TAG, "Try to use Amazon Store Link: " + host + "asin=" + asin);
+                    String msg = host + " " + getString(R.string.no_apps_to_handle_intent);
+                    Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+
+                    openOnAmazonMarket(mContext, asin);
+
+                    //String britboxAsin = "B084RCQNF6";
+                    //String iTVAsin = "B00PH7XGQG";
+
+                    return true;
+                }
+            }
+            /*else if (url.contains("app.tv.accedo")) {
                 String[] appUrl = link.toString().replace("https://app.", "").split("/|\\?");
                 String host = appUrl[0];
                 String asin = appUrl.length > 1 ? appUrl[1] : "";
@@ -106,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         myWebView.loadUrl("javascript:window.location.reload( true )");
                     }
 
-                } else if(asin.length() > 0) {
+                } else if (asin.length() > 0) {
                     Log.d(LOG_TAG, "Cannot open package: " + host);
                     String msg = host + " " + getString(R.string.no_apps_to_handle_intent);
                     Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
@@ -120,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
                 }
                 return true;
-            }
+            }*/
 
             // No App nor Google play link, treat it as a regular URL
             Log.d(LOG_TAG, "Open a regular URL: " + url);
