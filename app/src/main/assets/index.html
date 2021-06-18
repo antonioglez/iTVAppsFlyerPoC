@@ -49,13 +49,11 @@
 
     function deeplinkToApp(app) {
         switch(app) {
-            case "itv": window.location.href = "https://app.tv.accedo.itv";
+            case "itv": window.location.href = "itvapp://mainactivity/tv.accedo.itvappsflyerpoc";
                 break;
-            case "britbox": window.location.href = "https://app.tv.accedo.britbox";
+            case "britbox": window.location.href = "britboxapp://mainactivity/tv.accedo.britboxappsflyerpoc";
                 break;
-            case "youtube": window.location.href = "app://com.google.android.youtube";
-                break;
-            default: window.location.href = "app://com.android.vending";
+            default: window.location.href = "amzn://apps/android";
         }
     }
 
@@ -63,9 +61,9 @@
         switch(app) {
             case "itv": window.location.href = "https://itv-poc.onelink.me/pF1Q/install2";
                 break;
-            case "britbox": window.location.href = "";
+            case "britbox": window.location.href = "https://britbox-poc.onelink.me/xcFu/install";
                 break;
-            default: window.location.href = "app://com.android.vending";
+            default: window.location.href = "amzn://apps/android";
         }
     }
 
