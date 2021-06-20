@@ -1,73 +1,184 @@
 <html>
-<head>
-    <!--<script src="https://weinre-dev.ocs.ps.accedo.tv/target/target-script-min.js#itv"></script>-->
-</head>
-<body>
+    <head>
+       <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    </head>
+    <body>
+        <br />
+        <div class="ui container grid">
+            <div class="four wide colum">
+                <br /><br /><br /><br />
+                <img class="ui centered small image" src="images/itv-logo.jpg">
+            </div>
+            <div class="six wide column">
+                <div class="ui card">
+                    <div class="ui fluid image">
+                        <img src="images/itv.jpg">
+                    </div>
+                    <div class="content">
+                        <p>OneLink detects if app is installed. </p>
+                        <p><strong>This is the app currently running, so no action App must be launched.</strong></p>
+                        <div class="meta">
+                            <button class="ui animated button" onclick="deeplinkToAppsFlyer('itv')">
+                                <div class="visible content">AppsFlyer Onelink ></div>
+                                <div class="hidden content">>>></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<h1>iTV-PoC</h1>
-<div>
-    <h2>Default Javascript Bridge to Android</h2>
-    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
-</div>
-<div>
-    <h2>Links to Google Play</h2>
-    <input type="button" value="Go to Google Play iTV" onClick="gotoGooglePlay('itv')" />
-    <input type="button" value="Go to Google Play Britbox" onClick="gotoGooglePlay('britbox')" />
-    <input type="button" value="Go to Google Play Youtube" onClick="gotoGooglePlay('youtube')" />
-</div>
-<div>
-    <h2>Deeplinks to Apps</h2>
-    <input type="button" value="Deeplink to iTV-PoC" onClick="deeplinkToApp('itv')" />
-    <input type="button" value="Deeplink to Britbox" onClick="deeplinkToApp('britbox')" />
-</div>
-<div>
-    <h2>Deeplinks to AppsFlyer (Referral tool)</h2>
-    <input type="button" value="Deeplink to iTV-PoC" onClick="deeplinkToAppsFlyer('itv')" />
-    <input type="button" value="Deeplink to Britbox" onClick="deeplinkToAppsFlyer('britbox')" />
-</div>
+            <div class="six wide column">
+                <div class="ui card">
+                    <div class="ui fluid image">
+                        <img src="images/britbox.jpg">
+                    </div>
+                    <div class="content">
+                        <p><strong>If app is installed, the app will be launched. </strong></p>
+                        <p><strong>Otherwise, the Amazon App Store will be launched.</strong></p>
+                        <div class="meta">
+                            <button class="ui primary animated button" onclick="deeplinkToAppsFlyer('britbox')">
+                                <div class="visible content">AppsFlyer Onelink ></div>
+                                <div class="hidden content">>>></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script type="text/javascript">
-    function showAndroidToast(toast) {
-        if (Android) {
-            Android.showToast(toast);
-        } else {
-            console.log(toast);
-        }
-    }
+        <h4 class="ui horizontal divider header">
+            Direct Android links
+        </h4>
 
-    function gotoGooglePlay(app) {
-        switch(app) {
-            case "itv": window.location.href = "https://play.google.com/store/apps/details?id=air.ITVMobilePlayer";
-                break;
-            case "britbox": window.location.href = "https://play.google.com/store/apps/details?id=com.britbox.us";
-                break;
-            case "youtube": window.location.href = "https://play.google.com/store/apps/details?id=com.google.android.youtube";
-                break;
-            default: window.location.href = "https://play.google.com";
-        }
-    }
+        <div class="ui segment">
+            <div class="ui four column grid">
+                <div class="column">
+                    <div class="ui card">
+                        <div class="ui fluid image">
+                            <img src="images/itv.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                                Android Link to iTV Hub
+                            </div>
+                            <p>Try to launch the app</p>
+                            <div class="meta">
+                                <button class="ui teal animated button" onclick="deeplinkToApp('itv')">
+                                    <div class="visible content">Android Link ></div>
+                                    <div class="hidden content">>>></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    function deeplinkToApp(app) {
-        switch(app) {
-            case "itv": window.location.href = "itvapp://mainactivity/tv.accedo.itvappsflyerpoc";
-                break;
-            case "britbox": window.location.href = "britboxapp://mainactivity/tv.accedo.britboxappsflyerpoc";
-                break;
-            default: window.location.href = "amzn://apps/android";
-        }
-    }
+                <div class="column">
+                    <div class="ui card">
+                        <div class="ui fluid image">
+                            <img src="images/britbox.jpg">
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                                Android Link to Britbox
+                            </div>
+                            <p>Try to launch the app</p>
+                            <div class="meta">
+                                <button class="ui teal animated button" onclick="deeplinkToApp('britbox')">
+                                    <div class="visible content">Android Link ></div>
+                                    <div class="hidden content">>>></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    function deeplinkToAppsFlyer(app) {
-        switch(app) {
-            case "itv": window.location.href = "https://itv-poc.onelink.me/pF1Q/install2";
-                break;
-            case "britbox": window.location.href = "https://britbox-poc.onelink.me/xcFu/install";
-                break;
-            default: window.location.href = "amzn://apps/android";
-        }
-    }
+                <div class="column">
+                    <div class="ui card">
+                        <div class="ui fluid image">
+                            <img src="images/amazon-app-store.png">
+                        </div>
+                        <div class="content">
+                            <div class="ui yellow ribbon label">iTV Hub</div>
+                            <span>in App Store</span>
+                            <br /><br />
+                            <div class="meta">
+                                <button class="ui yellow animated button" onclick="deeplinkToApp('itv-amazon')">
+                                    <div class="visible content">Link to App Store ></div>
+                                    <div class="hidden content">>>></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</script>
+                <div class="column">
+                    <div class="ui card">
+                        <div class="ui fluid image">
+                            <img src="images/amazon-app-store.png">
+                        </div>
+                        <div class="content">
+                            <div class="ui yellow ribbon label">Britbox</div>
+                            <span>in App Store</span>
+                            <br /><br />
+                            <div class="meta">
+                                <button class="ui yellow animated button" onclick="deeplinkToApp('britbox-amazon')">
+                                    <div class="visible content">Link to App Store ></div>
+                                    <div class="hidden content">>>></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui vertical divider"></div>
 
-</body>
+        </div>
+
+        <script type="text/javascript">
+            function showAndroidToast(toast) {
+                if (Android) {
+                    Android.showToast(toast);
+                } else {
+                    console.log(toast);
+                }
+            }
+
+            function gotoGooglePlay(app) {
+                switch(app) {
+                    case "itv": window.location.href = "https://play.google.com/store/apps/details?id=air.ITVMobilePlayer";
+                        break;
+                    case "britbox": window.location.href = "https://play.google.com/store/apps/details?id=com.britbox.us";
+                        break;
+                    case "youtube": window.location.href = "https://play.google.com/store/apps/details?id=com.google.android.youtube";
+                        break;
+                    default: window.location.href = "https://play.google.com";
+                }
+            }
+
+            function deeplinkToApp(app) {
+                switch(app) {
+                    case "itv": window.location.href = "itvapp://mainactivity/tv.accedo.itvappsflyerpoc";
+                        break;
+                    case "britbox": window.location.href = "britboxapp://mainactivity/tv.accedo.britboxappsflyerpoc";
+                        break;
+                    case "itv-amazon": window.location.href = "amzn://apps/android?asin=B00PH7XGQG";
+                        break;
+                    case "britbox-amazon": window.location.href = "amzn://apps/android?asin=B084RCQNF6";
+                        break;
+                    default: window.location.href = "amzn://apps/android";
+                }
+            }
+
+            function deeplinkToAppsFlyer(app) {
+                switch(app) {
+                    case "itv": window.location.href = "https://itv-poc.onelink.me/pF1Q/install2";
+                        break;
+                    case "britbox": window.location.href = "https://britbox-poc.onelink.me/xcFu/install";
+                        break;
+                    default: window.location.href = "amzn://apps/android";
+                }
+            }
+
+        </script>
+    </body>
 </html>

@@ -124,7 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if (asin.length() > 0) {
                     Log.d(LOG_TAG, "Try to use Amazon Store Link: " + host + "asin=" + asin);
-                    String msg = host + " " + getString(R.string.no_apps_to_handle_intent);
+                    String app = "";
+                    switch(asin) {
+                        case "B00PH7XGQG": app = "iTV Hub"; break;
+                        case "B084RCQNF6": app = "Britbox"; break;
+                    }
+                    String msg = app + " " + getString(R.string.no_apps_to_handle_intent);
                     Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
 
                     openOnAmazonMarket(mContext, asin);
